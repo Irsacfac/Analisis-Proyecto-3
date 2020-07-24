@@ -2,13 +2,22 @@ package elementos;
 
 public class Robot {
 	
-	//private bit cromosomas;
+	private boolean[] cromosomas;
 	private String nombre;
 	private String padres;
 	
 	public Robot(int pASCII, int pGen) {
+		cromosomas = new boolean[22];
 		nombre = (char)pASCII + String.valueOf(pGen);
 		padres = "";
+	}
+
+	public boolean[] getCromosomas() {
+		return cromosomas;
+	}
+
+	public void setCromosomas(boolean[] cromosomas) {
+		this.cromosomas = cromosomas;
 	}
 
 	public String getPadres() {
