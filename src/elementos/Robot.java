@@ -24,13 +24,19 @@ public class Robot {
 		return padres;
 	}
 
-	public void setPadres(String padres) {
-		this.padres = padres;
+	public void setPadres(String pPadreA, String pPadreB) {
+		this.padres = pPadreA + ", " + pPadreB;
 	}
 
 	public String getNombre() {
 		return nombre;
 	}
 	
-	
+	public String toString() {
+		String enterKey = System.getProperty("line.separator");
+		String str = "";
+		str += "Nombre: " + this.nombre + enterKey;
+		str += "Padres: " + this.padres;
+		return str;
+	}
 }
