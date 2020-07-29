@@ -25,6 +25,22 @@ public class Algoritmo {
 		return new ContenedorCromosomas(n1, n2);
 	}
 	
+	public void primerGeneracion() {
+		//while
+		boolean[] cromosomas=new boolean[22];
+		for(int i=0;i<22;i++) {
+			int var =  (int) (Math.random()*2+1);
+			if(var==1) {
+				cromosomas[i]=true;
+			}
+			else {
+				cromosomas[i]=false;
+			}
+		}
+		Robot robot = new Robot(1,1);
+		robot.setCromosomas(cromosomas);
+	}
+	
 	public boolean[] mutacion(boolean[] gen, int tipo) {
 		boolean[] mutado = new boolean[gen.length];
 		int inicio =  (int) Math.random()*(gen.length - 4);
