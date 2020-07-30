@@ -25,7 +25,7 @@ public class Algoritmo {
 		return new ContenedorCromosomas(n1, n2);
 	}
 	
-	public void primerGeneracion() {
+	public void primerGeneracion(int pRobot) {
 		//while
 		boolean[] cromosomas=new boolean[22];
 		for(int i=0;i<22;i++) {
@@ -37,7 +37,7 @@ public class Algoritmo {
 				cromosomas[i]=false;
 			}
 		}
-		Robot robot = new Robot(1,1);
+		Robot robot = new Robot(65 + pRobot ,0);
 		robot.setCromosomas(cromosomas);
 	}
 	
