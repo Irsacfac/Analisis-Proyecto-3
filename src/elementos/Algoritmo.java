@@ -55,6 +55,13 @@ public class Algoritmo {
 				break;
 
 			default:
+				int var =  (int) (Math.random()*100);
+				if(var%3==0) {
+					mutado[inicio]=true;
+				}
+				else {
+					mutado[inicio]=false;
+				}
 				break;
 			}
 			inicio++;
