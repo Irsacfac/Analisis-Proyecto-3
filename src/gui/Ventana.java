@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 import elementos.Robot;
 import otros.IConstants;
@@ -14,6 +15,7 @@ public class Ventana extends JFrame implements IConstants{
 	
 	private JPanel textPanel;
 	private JPanel robotsPanel;
+	private JTextArea infoRobot;
     private ArrayList<Robot> robots;
 
 	public Ventana() {
@@ -42,6 +44,12 @@ public class Ventana extends JFrame implements IConstants{
         robotsPanel.setLayout(null);
         //robotsPanel.setBackground(Color.CYAN);
         this.getContentPane().add(robotsPanel);
+        
+        infoRobot = new JTextArea();
+        infoRobot.setBounds(0, 0, PANTALLA_WIDTH/3, PANTALLA_HEIGHT);
+        infoRobot.setEditable(false);
+        infoRobot.setText("Prueba");
+        textPanel.add(infoRobot);
 
         JLabel mietiqueta = new JLabel("Prueba");
         mietiqueta.setBounds(100, 100, DEFAULT_LABEL_WIDTH, DEFAULT_LABEL_HEIGHT);
@@ -55,6 +63,10 @@ public class Ventana extends JFrame implements IConstants{
         robotsPanel.add(new Etiqueta<Object>(null, "Prueba"));
         robotsPanel.add(new Etiqueta<Object>(null, "Prueba"));
         */
+	}
+	
+	private void modifyInfoRobot(String pText) {
+		infoRobot.setText(pText);
 	}
 	
 }
