@@ -47,9 +47,7 @@ public class Robot {
 	public String toString() {
 		String enterKey = System.getProperty("line.separator");
 		String str = "";
-		str += "Nombre: " + this.nombre + enterKey;
-		str += "Cromosomas: " + genToString() + enterKey;
-		str += "Padres: " + this.padres;
+		str += this.nombre+";"+genToString()+";"+this.padres;
 		return str;
 	}
 }

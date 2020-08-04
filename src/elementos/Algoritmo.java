@@ -1,8 +1,14 @@
 package elementos;
 
 import otros.ContenedorCromosomas;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Algoritmo {
+	
+	public ArrayList<Robot> robots = new ArrayList<Robot>();
+	
 	public Algoritmo() {
 		
 	}
@@ -27,18 +33,21 @@ public class Algoritmo {
 	
 	public void primerGeneracion(int pRobot) {
 		//while
-		boolean[] cromosomas=new boolean[22];
-		for(int i=0;i<22;i++) {
-			int var =  (int) (Math.random()*2+1);
-			if(var==1) {
-				cromosomas[i]=true;
+		for(int k=0;k<10;k++) {
+			boolean[] cromosomas=new boolean[22];
+			for(int i=0;i<22;i++) {
+				int var =  (int) (Math.random()*2+1);
+				if(var==1) {
+					cromosomas[i]=true;
+				}
+				else {
+					cromosomas[i]=false;
+				}
 			}
-			else {
-				cromosomas[i]=false;
-			}
+			Robot robot = new Robot(65 + pRobot+k ,0);
+			robot.setCromosomas(cromosomas);
+			robots.add(robot);
 		}
-		Robot robot = new Robot(65 + pRobot ,0);
-		robot.setCromosomas(cromosomas);
 	}
 	
 	public boolean[] mutacion(boolean[] gen, int tipo) {
@@ -72,5 +81,57 @@ public class Algoritmo {
 		return mutado;
 	}
 	
+	public void leer() {
+		File archivo = null;
+		FileReader fr = null;
+		BufferedReader br = null;
+		try {
+			archivo = new File ("Generacion.txt");
+		    fr = new FileReader (archivo);
+		    br = new BufferedReader(fr);
+
+		         // Lectura del fichero
+		    String linea;
+		    while((linea=br.readLine())!=null) {
+		    	//System.out.println(linea);
+		    	String[] parts = linea.split(";");
+		    	//
+		    }
+		}
+		catch(Exception e){
+		         e.printStackTrace();
+		}finally{
+			try{
+				if( null != fr ){
+					fr.close();     
+		         }
+			}catch (Exception e2){
+		         e2.printStackTrace();
+		    }
+		}
+	}
+	
+	public void escribir() {
+		FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+        	fichero = new FileWriter("Generacion.txt");
+            pw = new PrintWriter(fichero);
+
+            for (int i = 0; i < robots.size(); i++) {
+                pw.println(robots.get(i).toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+	}
 	
 }
