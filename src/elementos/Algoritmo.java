@@ -9,8 +9,6 @@ import java.util.List;
 
 public class Algoritmo implements IConstants{
 	
-	public int matriz[][]= new int[20][20];
-	
 	public Algoritmo() {
 		
 	}
@@ -117,7 +115,7 @@ public class Algoritmo implements IConstants{
         }
 	}
 	
-	public void cargarTerreno() {
+	public void cargarTerreno(int[][] matriz) {
 		File archivo = null;
 		FileReader fr = null;
 		BufferedReader br = null;

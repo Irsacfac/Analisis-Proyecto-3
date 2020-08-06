@@ -5,6 +5,7 @@ import otros.IConstants;
 public class Programa implements IConstants{
 	
 	private int genActual;
+	public int mapa[][]= new int[20][20];
 	private Algoritmo miAlgoritmo;
 	private int[] markovDosBits;
 	private int[] componente;
@@ -16,6 +17,7 @@ public class Programa implements IConstants{
 		robots = new Robot[2*CANT_PAREJAS];
 		primerGeneracion();
 		miAlgoritmo.escribir(robots);
+		miAlgoritmo.cargarTerreno(mapa);
 	}
 	
 	private void primerGeneracion() {
