@@ -1,13 +1,15 @@
 package elementos;
 
-public class Robot {
+import otros.IConstants;
+
+public class Robot implements IConstants{
 	
 	private boolean[] cromosomas;
 	private String nombre;
 	private String padres;
 	
 	public Robot(int pASCII, int pGen) {
-		cromosomas = new boolean[22];
+		cromosomas = new boolean[CANT_CROMOSOMAS];
 		nombre = (char)pASCII + String.valueOf(pGen);
 		padres = "";
 	}

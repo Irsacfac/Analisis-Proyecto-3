@@ -1,13 +1,14 @@
 package elementos;
 
 import otros.ContenedorCromosomas;
+import otros.IConstants;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Algoritmo {
+public class Algoritmo implements IConstants{
 	
-	public ArrayList<Robot> robots = new ArrayList<Robot>();
 	public int matriz[][]= new int[20][20];
 	
 	public Algoritmo() {
@@ -30,25 +31,6 @@ public class Algoritmo {
 		}
 		
 		return new ContenedorCromosomas(n1, n2);
-	}
-	
-	public void primerGeneracion(int pRobot) {
-		//while
-		for(int k=0;k<10;k++) {
-			boolean[] cromosomas=new boolean[22];
-			for(int i=0;i<22;i++) {
-				int var =  (int) (Math.random()*2+1);
-				if(var==1) {
-					cromosomas[i]=true;
-				}
-				else {
-					cromosomas[i]=false;
-				}
-			}
-			Robot robot = new Robot(65 + pRobot+k ,0);
-			robot.setCromosomas(cromosomas);
-			robots.add(robot);
-		}
 	}
 	
 	public boolean[] mutacion(boolean[] gen, int tipo) {
@@ -112,7 +94,7 @@ public class Algoritmo {
 		}
 	}
 	
-	public void escribir() {
+	public void escribir(Robot[] robots) {
 		FileWriter fichero = null;
         PrintWriter pw = null;
         try
@@ -120,8 +102,8 @@ public class Algoritmo {
         	fichero = new FileWriter("Generacion.txt");
             pw = new PrintWriter(fichero);
 
-            for (int i = 0; i < robots.size(); i++) {
-                pw.println(robots.get(i).toString());
+            for (int i = 0; i < robots.length; i++) {
+                pw.println(robots[i].toString());
             }
         } catch (Exception e) {
             e.printStackTrace();

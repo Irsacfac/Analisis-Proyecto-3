@@ -25,9 +25,10 @@ public class main {
 		
 		Algoritmo algoritmo=new Algoritmo();
 		algoritmo.cargarTerreno();
-		algoritmo.primerGeneracion(3);
-		algoritmo.escribir();
+		//algoritmo.primerGeneracion(3);
+		//algoritmo.escribir();
 		algoritmo.leer();
+		System.out.println((int)Math.pow(2, 0));
 	}
 
 }
