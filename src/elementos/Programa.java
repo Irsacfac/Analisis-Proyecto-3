@@ -10,13 +10,12 @@ public class Programa implements IConstants{
 	private int[] componente;
 	private Robot[] robots;
 	
-	public Programa(int n) {
+	public Programa() {
 		markovDosBits = new int[] {0, 35, 70, 100};
 		componente = new int[] {0, 1, 2};
-		robots = new Robot[2*n];
+		robots = new Robot[2*CANT_PAREJAS];
 		primerGeneracion();
 		miAlgoritmo.escribir(robots);
-		
 	}
 	
 	private void primerGeneracion() {
