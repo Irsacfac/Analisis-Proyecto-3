@@ -146,14 +146,74 @@ public class Algoritmo implements IConstants{
 		         e2.printStackTrace();
 		    }
 		}
-		String x;
+		/*String x;
 		for(int i=0; i<20; i++) {
 			x="";
 	    	for(int j=0; j<20; j++) {
 	    		x+=Integer.toString(matriz[i][j]);
 	    	}
 	    	System.out.println(x);
+	    }*/
+	}
+	
+	public int[][] camara(Robot robot) {
+		int direcciones[][]= new int[DIRECTIONS][robot.getCamera()];
+		int tempX=0;
+		int tempY=0;
+		for(int i=0; i<DIRECTIONS;i++) {
+			for(int j=1; j<robot.getCamera()+1;j++) {
+				switch(i)
+				{
+				case 0:
+					tempX=robot.getFila()-(1*j);
+					tempY=robot.getColumna()-(1*j);
+					break;	
+				case 1:
+					tempX=robot.getFila()-(1*j);
+					tempY=robot.getColumna();
+					break;
+				case 2:
+					tempX=robot.getFila()-(1*j);
+					tempY=robot.getColumna()+(1*j);
+					break;	
+				case 3:
+					tempX=robot.getFila();
+					tempY=robot.getColumna()-(1*j);
+					break;
+				case 4:
+					tempX=robot.getFila();
+					tempY=robot.getColumna()+(1*j);
+					break;	
+				case 5:
+					tempX=robot.getFila()+(1*j);
+					tempY=robot.getColumna()-(1*j);
+					break;
+				case 6:
+					tempX=robot.getFila()+(1*j);
+					tempY=robot.getColumna();
+					break;	
+				case 7:
+					tempX=robot.getFila()+(1*j);
+					tempY=robot.getColumna()+(1*j);
+					break;
+				}
+				try {
+					direcciones[i][j-1]=matriz[tempX][tempY];
+					//System.out.println(tempX+" "+tempY+" "+matriz[tempX][tempY]);
+				}catch(Exception e) {
+					direcciones[i][j-1]=4;
+				}
+			}
+		}
+		String x;
+		for(int i=0; i<8; i++) {
+			x="";
+	    	for(int j=0; j<direcciones[0].length;j++) {
+	    		x+=Integer.toString(direcciones[i][j]);
+	    	}
+	    	System.out.println("Direccion "+i+": "+x);
 	    }
+		return direcciones;
 	}
 	
 }

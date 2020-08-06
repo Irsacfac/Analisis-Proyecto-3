@@ -7,13 +7,42 @@ public class Robot implements IConstants{
 	private boolean[] cromosomas;
 	private String nombre;
 	private String padres;
+	private int fila;
+	private int columna;
+	private int camera;
 	
 	public Robot(int pASCII, int pGen) {
 		cromosomas = new boolean[CANT_CROMOSOMAS];
 		nombre = (char)pASCII + String.valueOf(pGen);
 		padres = "";
+		fila=7;
+		columna=10;
+	}
+	
+	public int getCamera() {
+		return camera;
 	}
 
+	public void setCamera(int pCamera) {
+		this.camera = pCamera;
+	}
+	
+	public int getColumna() {
+		return columna;
+	}
+
+	public void setColumna(int posicion) {
+		this.columna = posicion;
+	}
+
+	public int getFila() {
+		return fila;
+	}
+
+	public void setFila(int posicion) {
+		this.fila = posicion;
+	}
+	
 	public boolean[] getCromosomas() {
 		return cromosomas;
 	}

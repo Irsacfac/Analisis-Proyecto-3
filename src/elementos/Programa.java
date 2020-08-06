@@ -15,7 +15,10 @@ public class Programa implements IConstants{
 		componente = new int[] {0, 1, 2};
 		robots = new Robot[2*CANT_PAREJAS];
 		primerGeneracion();
+		miAlgoritmo= new Algoritmo();
 		miAlgoritmo.escribir(robots);
+		miAlgoritmo.cargarTerreno();
+		miAlgoritmo.camara(robots[0]);
 	}
 	
 	private void primerGeneracion() {
@@ -32,6 +35,7 @@ public class Programa implements IConstants{
 			}
 			Robot robot = new Robot(ASCII_A + k, genActual);
 			robot.setCromosomas(cromosomas);
+			robot.setCamera(3);
 			robots[k] = robot;
 		}
 	}
