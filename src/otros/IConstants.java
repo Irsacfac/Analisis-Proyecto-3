@@ -8,4 +8,5 @@ public interface IConstants {
 	public static int CANT_CROMOSOMAS = 16;
 	public static int ASCII_A = 65; 
 	public static int CANT_PAREJAS = 4;
+	public static int DIRECTIONS = 8;
 }

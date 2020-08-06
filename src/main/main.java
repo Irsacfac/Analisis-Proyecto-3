@@ -1,6 +1,7 @@
 package main;
 
 import elementos.Algoritmo;
+import elementos.Programa;
 import gui.Ventana;
 
 public class main {
@@ -20,7 +21,7 @@ public class main {
 		System.out.println("Hola" + enterKey + "mundo");
 		*/
 		
-		Ventana miVentana = new Ventana();
+		//Ventana miVentana = new Ventana();
 		//miVentana.modifyInfoRobot("A0");
 		
 		Algoritmo algoritmo=new Algoritmo();
@@ -28,6 +29,7 @@ public class main {
 		//algoritmo.primerGeneracion(3);
 		//algoritmo.escribir();
 		algoritmo.leer();
+		Programa programa= new Programa();
 		System.out.println((int)Math.pow(2, 0));
 	}
 
