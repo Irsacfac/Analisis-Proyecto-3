@@ -8,6 +8,7 @@ import java.util.List;
 public class Algoritmo {
 	
 	public ArrayList<Robot> robots = new ArrayList<Robot>();
+	public int matriz[][]= new int[20][20];
 	
 	public Algoritmo() {
 		
@@ -132,6 +133,45 @@ public class Algoritmo {
               e2.printStackTrace();
            }
         }
+	}
+	
+	public void cargarTerreno() {
+		File archivo = null;
+		FileReader fr = null;
+		BufferedReader br = null;
+		try {
+			archivo = new File ("Terreno.txt");
+		    fr = new FileReader (archivo);
+		    br = new BufferedReader(fr);
+
+		         // Lectura del fichero
+		    String linea;
+		    for(int i=0; i<20; i++) {
+		    	linea=br.readLine();
+		    	for(int j=0; j<20; j++) {
+		    		matriz[i][j]=Character.getNumericValue(linea.charAt(j));
+		    	}
+		    }
+		}
+		catch(Exception e){
+		         e.printStackTrace();
+		}finally{
+			try{
+				if( null != fr ){
+					fr.close();     
+		         }
+			}catch (Exception e2){
+		         e2.printStackTrace();
+		    }
+		}
+		String x;
+		for(int i=0; i<20; i++) {
+			x="";
+	    	for(int j=0; j<20; j++) {
+	    		x+=Integer.toString(matriz[i][j]);
+	    	}
+	    	System.out.println(x);
+	    }
 	}
 	
 }

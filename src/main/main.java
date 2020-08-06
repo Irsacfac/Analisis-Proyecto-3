@@ -24,6 +24,7 @@ public class main {
 		//miVentana.modifyInfoRobot("A0");
 		
 		Algoritmo algoritmo=new Algoritmo();
+		algoritmo.cargarTerreno();
 		algoritmo.primerGeneracion(3);
 		algoritmo.escribir();
 		algoritmo.leer();
