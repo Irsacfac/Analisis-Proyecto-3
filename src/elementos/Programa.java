@@ -8,11 +8,13 @@ public class Programa implements IConstants{
 	public int mapa[][]= new int[20][20];
 	private Algoritmo miAlgoritmo;
 	private int[] markovDosBits;
+	private int[][] markovTresBits;
 	private int[] componente;
 	private Robot[] robots;
 	
 	public Programa() {
 		markovDosBits = new int[] {0, 35, 70, 100};
+		markovTresBits = new int[][] {{25,34,19,40,70,10,91,52},{25,34,19,40,70,91,10,52},{25,34,19,22,10,10,10,25}};
 		componente = new int[] {0, 1, 2};
 		robots = new Robot[2*CANT_PAREJAS];
 		primerGeneracion();
@@ -39,6 +41,10 @@ public class Programa implements IConstants{
 			robot.setCamera(3);
 			robots[k] = robot;
 		}
+	}
+	
+	private void prueba() {
+		
 	}
 	
 	private int binaryToDecimal(boolean[] pArray) {

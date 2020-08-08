@@ -9,4 +9,5 @@ public interface IConstants {
 	public static int ASCII_A = 65; 
 	public static int CANT_PAREJAS = 4;
 	public static int DIRECTIONS = 8;
+	public static int CANT_PRUEBAS = 10;
 }
