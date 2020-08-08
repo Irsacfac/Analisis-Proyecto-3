@@ -9,23 +9,69 @@ public class Robot implements IConstants{
 	private String padres;
 	private int fila;
 	private int columna;
-	private int camera;
 	
 	public Robot(int pASCII, int pGen) {
 		cromosomas = new boolean[CANT_CROMOSOMAS];
+		//3 de movimiento; 2 de cámara; 2 de batería; 2 de motor
 		nombre = (char)pASCII + String.valueOf(pGen);
 		padres = "";
-		fila=7;
-		columna=10;
+		fila=19;
+		columna=0;
+	}
+	
+	public boolean[] getMovimiento() {
+		boolean[] movimiento=new boolean[3];
+		for(int i=0; i<3; i++) {
+			movimiento[i]=cromosomas[i];
+		}
+		return movimiento;
 	}
 	
 	public int getCamera() {
+		int camera=0;
+		if(cromosomas[3]==true) {
+			if(cromosomas[4]==true) {
+				camera=3;
+			}else {
+				camera=2;
+			}
+		}else {
+			camera=1;
+		}
 		return camera;
 	}
-
-	public void setCamera(int pCamera) {
-		this.camera = pCamera;
+	
+	public int getBateria() {
+		int bateria=0;
+		if(cromosomas[5]==true) {
+			if(cromosomas[6]==true) {
+				bateria=3;
+			}else {
+				bateria=2;
+			}
+		}else {
+			bateria=1;
+		}
+		return bateria;
 	}
+	
+	public int getMotor() {
+		int motor=0;
+		if(cromosomas[7]==true) {
+			if(cromosomas[8]==true) {
+				motor=3;
+			}else {
+				motor=2;
+			}
+		}else {
+			motor=1;
+		}
+		return motor;
+	}
+
+	/*public void setCamera(int pCamera) {
+		this.camera = pCamera;
+	}*/
 	
 	public int getColumna() {
 		return columna;

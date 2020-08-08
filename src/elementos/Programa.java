@@ -6,9 +6,10 @@ public class Programa implements IConstants{
 	
 	private int genActual;
 	public int mapa[][]= new int[20][20];
-	private Algoritmo miAlgoritmo;
+	public Algoritmo miAlgoritmo;
+	private Genetico miGenetico;
 	private int[] markovDosBits;
-	private int[][] markovTresBits;
+	public int[][] markovTresBits;
 	private int[] componente;
 	private Robot[] robots;
 	
@@ -21,7 +22,22 @@ public class Programa implements IConstants{
 		miAlgoritmo= new Algoritmo();
 		miAlgoritmo.escribir(robots);
 		miAlgoritmo.cargarTerreno(mapa);
-		miAlgoritmo.camara(robots[0]);
+		miGenetico= new Genetico(this);
+		pruebas();
+		//miAlgoritmo.camara(mapa, robots[0]);
+		
+		/*String a="";
+		for(int i=0; i<robots[0].getCromosomas().length; i++) {
+			if(robots[0].getCromosomas()[i]==true) {
+				a+=1;
+			}else {
+				a+=0;
+			}
+		}
+		System.out.println(a);
+		System.out.println("Cámara: "+robots[0].getCamera());
+		System.out.println("Batería: "+robots[0].getBateria());
+		System.out.println("Motor: "+robots[0].getMotor());*/
 	}
 	
 	private void primerGeneracion() {
@@ -38,16 +54,21 @@ public class Programa implements IConstants{
 			}
 			Robot robot = new Robot(ASCII_A + k, genActual);
 			robot.setCromosomas(cromosomas);
-			robot.setCamera(3);
 			robots[k] = robot;
 		}
 	}
 	
-	private void prueba() {
-		
+	private void pruebas() {
+		for(int i=0;i<robots.length;i++) {
+			for(int j=0;j<CANT_PRUEBAS;j++) {
+				miGenetico.evaluacion(robots[i]);
+				robots[i].setFila(19);
+				robots[i].setColumna(0);
+			}
+		}
 	}
 	
-	private int binaryToDecimal(boolean[] pArray) {
+	public int binaryToDecimal(boolean[] pArray) {
 		int result = 0;
 		int contador = 0;
 		for (int i = pArray.length-1; i >= 0; i--) {
