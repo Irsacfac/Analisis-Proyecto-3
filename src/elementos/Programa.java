@@ -63,7 +63,18 @@ public class Programa implements IConstants{
 		}
 	}
 	
-	private void funcionAdaptabilidad(ArrayList<DatosGenetico> pDatosRobots) {
+	private void funcionAdaptabilidad() {
+		int promedioPasos = 0;
+		int promedioBateriaRestante = 0;
+		for (int i = 0; i < datosRobots.length; i++) {
+			DatosGenetico datoActual = datosRobots[i];
+			for (int j = 0; j < CANT_PRUEBAS; j++) {
+				promedioPasos += datoActual.getPasosDados()[j];
+				promedioBateriaRestante += datoActual.getBateriaRestante()[j];
+			}
+			promedioPasos = promedioPasos/CANT_PRUEBAS;
+			promedioBateriaRestante = promedioBateriaRestante/CANT_PRUEBAS;
+		}
 		
 	}
 	
