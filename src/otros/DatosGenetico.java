@@ -21,7 +21,23 @@ public class DatosGenetico implements IConstants{
 		pasosDados[pos] = pPasos;
 	}
 	
-	public int[] get(int pos) {
+	public int[] getFilas() {
+		return filas;
+	}
+
+	public int[] getColumnas() {
+		return columnas;
+	}
+
+	public int[] getBateriaRestante() {
+		return bateriaRestante;
+	}
+
+	public int[] getPasosDados() {
+		return pasosDados;
+	}
+
+	public int[] getData(int pos) {
 		int[] result = {filas[pos], columnas[pos], bateriaRestante[pos], pasosDados[pos]};
 		return result;
 	}
