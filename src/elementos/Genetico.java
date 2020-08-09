@@ -22,7 +22,7 @@ public class Genetico implements IConstants{
 			for(int i=0;i<probabilidades.length-1;i++) {
 				probabilidades[i]=(100-programa.markovTresBits[i][movimiento])/3;
 			}
-			probabilidades[DIRECTIONS-2]=probabilidades[DIRECTIONS-2]/2;
+			probabilidades[DIRECTIONS-2]=probabilidades[DIRECTIONS-2];
 			probabilidades[DIRECTIONS-1]=probabilidades[DIRECTIONS-2];
 			
 			/*System.out.println(probabilidades[0]);
