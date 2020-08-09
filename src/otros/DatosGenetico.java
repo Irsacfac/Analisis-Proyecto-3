@@ -21,6 +21,13 @@ public class DatosGenetico implements IConstants{
 		pasosDados[pos] = pPasos;
 	}
 	
+	public void add(int pos, int[] pDatos) {
+		filas[pos] = pDatos[0];
+		columnas[pos] = pDatos[1];
+		bateriaRestante[pos] = pDatos[2];
+		pasosDados[pos] = pDatos[3];
+	}
+	
 	public int[] getFilas() {
 		return filas;
 	}
