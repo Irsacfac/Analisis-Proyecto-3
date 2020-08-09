@@ -11,7 +11,7 @@ public class Genetico implements IConstants{
 		programa=pPrograma;
 	}
 	
-	public void evaluacion(Robot robot) {
+	public int[] evaluacion(Robot robot) {
 		//Casilla en que termina, pasos que dio y energía consumida
 		int pasos=0;
 		boolean fin=false;
@@ -115,6 +115,9 @@ public class Genetico implements IConstants{
 		System.out.println("Pasos: "+pasos);
 		System.out.println("Energía inicial :"+100*robot.getBateria()+" energía final :"+energia);
 		System.out.println("---------------");
+		int porcentageBateria = (100*energia)/robot.getBateria();
+		int[] result = {robot.getFila(), robot.getColumna(), porcentageBateria, pasos};
+		return result;
 	}
 	
 	private double evaluacionAuxiliar(int i, int[][]direcciones, int motor) {
