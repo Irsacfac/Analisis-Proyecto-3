@@ -92,6 +92,20 @@ public class Robot implements IConstants{
 		}
 		return motor;
 	}
+	
+	public int getComprobacion() {
+		int contador = 0;
+		if(cromosomas[9]==true) {
+			if(cromosomas[10]==true) {
+				contador=3;
+			}else {
+				contador=2;
+			}
+		}else {
+			contador=1;
+		}
+		return contador;
+	}
 
 	/*public void setCamera(int pCamera) {
 		this.camera = pCamera;

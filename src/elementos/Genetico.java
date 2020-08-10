@@ -53,6 +53,7 @@ public class Genetico implements IConstants{
 			Random rand = new Random();
 			double probaEleccion=0 + 100 * rand.nextDouble();
 			probaEleccion=Math.round(probaEleccion*10)/10d;
+			boolean comprobar = (int) Math.random()*(100)>programa.getProbaDosBits(robot.getComprobacion());
 			int eleccion=-1;
 			int acumulado=0;
 			for(int i=0;i<probabilidades.length;i++) {

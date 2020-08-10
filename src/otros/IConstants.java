@@ -5,7 +5,7 @@ public interface IConstants {
 	public static int PANTALLA_HEIGHT = 400;
 	public static int DEFAULT_LABEL_WIDTH = 60;
 	public static int DEFAULT_LABEL_HEIGHT = 30;
-	public static int CANT_CROMOSOMAS = 9;
+	public static int CANT_CROMOSOMAS = 11;
 	public static int ASCII_A = 65; 
 	public static int CANT_PAREJAS = 8;
 	public static int DIRECTIONS = 4;

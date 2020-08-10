@@ -30,7 +30,7 @@ public class main {
 		//algoritmo.escribir();
 		algoritmo.leer();
 		Programa programa= new Programa();
-		System.out.println((int)Math.pow(2, 0));
+		//System.out.println((int)Math.pow(2, 0));
 	}
 
 }
