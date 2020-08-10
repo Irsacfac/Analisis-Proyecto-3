@@ -16,6 +16,8 @@ public class Robot implements IConstants{
 	private int promedioBateriaRestante;
 	private int distancia;
 	
+	private boolean exito;
+	
 	public Robot(int pASCII, int pGen) {
 		cromosomas = new boolean[CANT_CROMOSOMAS];
 		//3 de movimiento; 2 de cámara; 2 de batería; 2 de motor
@@ -23,6 +25,7 @@ public class Robot implements IConstants{
 		padres = "";
 		fila=19;
 		columna=0;
+		exito=false;
 	}
 	
 	public int getDistancia() {
@@ -157,6 +160,14 @@ public class Robot implements IConstants{
 
 	public String getNombre() {
 		return nombre;
+	}
+	
+	public boolean getExito() {
+		return exito;
+	}
+	
+	public void setExito(boolean pExito) {
+		exito=pExito;
 	}
 	
 	private String genToString() {

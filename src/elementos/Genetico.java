@@ -111,7 +111,11 @@ public class Genetico implements IConstants{
 			}
 			if(robot.getFila()==0 && robot.getColumna()==19) {
 				fin=true;
-				System.out.println("COMPLETADO");
+				/*System.out.println("COMPLETADO");
+				System.out.println("Energía restante: "+energia);
+				System.out.println("Pasos dados: "+pasos);*/
+				robot.setExito(true);
+				
 			}
 			//System.out.println("Casilla: "+"("+robot.getFila()+","+robot.getColumna()+")");
 		}
