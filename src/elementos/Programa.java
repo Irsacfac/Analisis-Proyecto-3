@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import gui.Ventana;
 import otros.ContenedorCromosomas;
 import otros.DatosGenetico;
 import otros.IConstants;
@@ -17,8 +18,9 @@ public class Programa implements IConstants{
 	private int[] markovDosBits;
 	public int[][] markovTresBits;
 	private int[] componente;
+	
 	private Robot[] robots;
-	DatosGenetico[] datosRobots;
+	private DatosGenetico[] datosRobots;
 	
 	
 	public Programa() {
@@ -50,6 +52,7 @@ public class Programa implements IConstants{
 		miAlgoritmo.cargarTerreno(mapa);
 		miGenetico= new Genetico(this);
 		
+		
 		boolean salir=false;
 		while(!salir) {
 			//imprimirRobots();
@@ -58,14 +61,19 @@ public class Programa implements IConstants{
 			//System.out.println("Generacion "+genActual+" porcentaje de exito: "+porcentajeExito());
 			if(porcentajeExito()>70.0) {
 				salir=true;
+				miAlgoritmo.escribir(genActual, robots, datosRobots);
 				System.out.println("Generacion "+genActual+" porcentaje de exito: "+porcentajeExito());
+				genActual++;
 			}else {
-				/*if(porcentajeExito()==0.0) {
-					imprimirRobots();
-				}*/
+				//if(porcentajeExito()==0.0) {
+					//imprimirRobots();
+				//}
 				siguienteGen(miAlgoritmo.seleccion(robots));
 			}
 		}
+		
+		
+		
 		
 		/*String a="";
 		for(int i=0; i<robots[0].getCromosomas().length; i++) {
@@ -79,6 +87,9 @@ public class Programa implements IConstants{
 		System.out.println("Cámara: "+robots[0].getCamera());
 		System.out.println("Batería: "+robots[0].getBateria());
 		System.out.println("Motor: "+robots[0].getMotor());*/
+		
+		Ventana miVentana = new Ventana(genActual);
+		//miVentana.modifyInfoRobot("A0");
 	}
 	
 	private void primerGeneracion() {
