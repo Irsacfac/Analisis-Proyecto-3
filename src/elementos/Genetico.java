@@ -34,7 +34,8 @@ public class Genetico implements IConstants{
 			
 			int[][] direcciones=programa.miAlgoritmo.camara(programa.mapa, robot);
 			for(int i=0;i<probabilidades.length;i++) {
-				double varianza=evaluacionAuxiliar(i, direcciones,robot.getMotor());
+				boolean comprobar = (int) Math.random()*(100)>programa.getProbaDosBits(robot.getComprobacion());
+				double varianza=evaluacionAuxiliar(i, direcciones,robot.getMotor(), comprobar);
 				if(varianza==-100.0) {
 					probabilidades[i]=0;
 				}else {
@@ -137,11 +138,15 @@ public class Genetico implements IConstants{
 		return result;
 	}
 	
-	private double evaluacionAuxiliar(int i, int[][]direcciones, int motor) {
+	private double evaluacionAuxiliar(int i, int[][]direcciones, int motor, boolean comprobacion) {
 		double varianza=0.00;
 		boolean bloqueado=false;
 		for(int j=0;j<direcciones[i].length;j++) {
 			if(j==0 && direcciones[i][j]==3) {
+				varianza=-100;
+				//System.out.println("Varianza: "+varianza);
+				bloqueado=true;
+			}else if(bloqueado!=true && direcciones[i][j]>motor-1 && comprobacion) {
 				varianza=-100;
 				//System.out.println("Varianza: "+varianza);
 				bloqueado=true;
