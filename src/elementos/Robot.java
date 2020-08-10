@@ -10,6 +10,12 @@ public class Robot implements IConstants{
 	private int fila;
 	private int columna;
 	
+	//Datos de los recorridos
+	
+	private int promedioPasos;
+	private int promedioBateriaRestante;
+	private int distancia;
+	
 	public Robot(int pASCII, int pGen) {
 		cromosomas = new boolean[CANT_CROMOSOMAS];
 		//3 de movimiento; 2 de cámara; 2 de batería; 2 de motor
@@ -17,6 +23,24 @@ public class Robot implements IConstants{
 		padres = "";
 		fila=19;
 		columna=0;
+	}
+	
+	public int getDistancia() {
+		return distancia;
+	}
+	
+	public int getPromedioBateria() {
+		return promedioBateriaRestante;
+	}
+	
+	public int getPromedioPasos() {
+		return promedioPasos;
+	}
+	
+	public void setRecorrido(int pPromedioPasos, int pPromedioBateriaRestante, int pDistancia) {
+		promedioPasos=pPromedioPasos;
+		promedioBateriaRestante=pPromedioBateriaRestante;
+		distancia=pDistancia;
 	}
 	
 	public boolean[] getMovimiento() {
@@ -91,6 +115,18 @@ public class Robot implements IConstants{
 	
 	public boolean[] getCromosomas() {
 		return cromosomas;
+	}
+	
+	public String getCromosomasSTR() {
+		String aux="";
+		for(int i=0; i<cromosomas.length; i++) {
+			if(cromosomas[i]==true) {
+				aux+="1";
+			}else {
+				aux+="0";
+			}
+		}
+		return aux;
 	}
 
 	public void setCromosomas(boolean[] cromosomas) {

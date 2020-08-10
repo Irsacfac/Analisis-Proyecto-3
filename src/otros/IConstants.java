@@ -7,7 +7,8 @@ public interface IConstants {
 	public static int DEFAULT_LABEL_HEIGHT = 30;
 	public static int CANT_CROMOSOMAS = 9;
 	public static int ASCII_A = 65; 
-	public static int CANT_PAREJAS = 4;
+	public static int CANT_PAREJAS = 8;
 	public static int DIRECTIONS = 4;
 	public static int CANT_PRUEBAS = 4;
+	public static int[] OBJETIVO = {60, 30, 0};//Pasos, porcentaje de energía, distancia
 }

@@ -15,14 +15,15 @@ public class Genetico implements IConstants{
 		//Casilla en que termina, pasos que dio y energía consumida
 		int pasos=0;
 		boolean fin=false;
-		int energia=100*robot.getBateria();
+		int energia=400*robot.getBateria();
 		int movimiento= programa.binaryToDecimal(robot.getMovimiento());
 		double[] probabilidades= new double[DIRECTIONS];
+		long startTime = System.nanoTime();
 		while(!fin) {
 			for(int i=0;i<probabilidades.length-1;i++) {
 				probabilidades[i]=(100-programa.markovTresBits[i][movimiento])/3;
 			}
-			probabilidades[DIRECTIONS-2]=probabilidades[DIRECTIONS-2];
+			//probabilidades[DIRECTIONS-2]=probabilidades[DIRECTIONS-2];
 			probabilidades[DIRECTIONS-1]=probabilidades[DIRECTIONS-2];
 			
 			/*System.out.println(probabilidades[0]);
@@ -100,23 +101,34 @@ public class Genetico implements IConstants{
 			
 			if(energia<1) {
 				fin=true;
+				energia=0;
+				//System.out.println("Sin energía");
 			}
 			if(programa.mapa[robot.getFila()][robot.getColumna()]>robot.getMotor()-1) {
 				fin=true;
+				//System.out.println("Casilla erronea");
 			}
 			if(robot.getFila()==0 && robot.getColumna()==19) {
 				fin=true;
+				System.out.println("COMPLETADO");
 			}
 			//System.out.println("Casilla: "+"("+robot.getFila()+","+robot.getColumna()+")");
 		}
+		
+		long endTime = System.nanoTime() - startTime;
+		int tiempo=(int)endTime;
+		//System.out.println("FIN "+endTime+" "+tiempo);
+		
 		//System.out.println(movimiento);
-		System.out.println("Robot : "+robot.getNombre());
+		/*System.out.println("Robot : "+robot.getNombre());
 		System.out.println("Casilla final: "+"("+robot.getFila()+","+robot.getColumna()+")");
 		System.out.println("Pasos: "+pasos);
 		System.out.println("Energía inicial :"+100*robot.getBateria()+" energía final :"+energia);
-		System.out.println("---------------");
-		int porcentageBateria = (100*energia)/robot.getBateria();
-		int[] result = {robot.getFila(), robot.getColumna(), porcentageBateria, pasos};
+		System.out.println("---------------");*/
+		//int porcentageBateria = (100*energia)/robot.getBateria();
+		int porcentageBateria = (int)((energia*1.0/(robot.getBateria()*100.0))*100);
+		//System.out.println(energia+"  "+porcentageBateria);
+		int[] result = {robot.getFila(), robot.getColumna(), porcentageBateria, pasos, tiempo};
 		return result;
 	}
 	
