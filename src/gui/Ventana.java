@@ -182,6 +182,13 @@ public class Ventana extends JFrame implements IConstants, ItemListener, ActionL
 		    	}
 		    	if(corte[0].substring(1).equals(name)){
 		    		bandG=true;
+		    		auxiliar+="Cromosomas: "+corte[1];
+		    		try {
+		    			//auxiliar+="         Padres: "+corte[2].split(",")[0]+" "+corte[2].split(",")[1]+"\n";
+		    			auxiliar+="         Padres: "+corte[2].split(",")[0].split(":")[0]+" "+corte[2].split(",")[1].split(":")[0]+"\n";
+		    		}catch (Exception e) {
+		    			auxiliar+="         Es de la primera generación\n";
+		    		}
 		    	}
 
 		    }
