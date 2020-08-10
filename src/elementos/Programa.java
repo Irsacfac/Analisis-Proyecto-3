@@ -226,6 +226,10 @@ public class Programa implements IConstants{
 		}
 	}
 	
+	public int getProbaDosBits(int proba) {
+		return markovDosBits[proba];
+	}
+	
 	public int binaryToDecimal(boolean[] pArray) {
 		int result = 0;
 		int contador = 0;
