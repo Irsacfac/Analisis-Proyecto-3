@@ -20,7 +20,7 @@ public class Programa implements IConstants{
 	
 	public Programa() {
 		markovDosBits = new int[] {0, 35, 70, 100};
-		markovTresBits = new int[][] {{25,34,19,40,70,10,91,52},{25,34,19,40,70,91,10,52},{25,34,19,22,10,10,10,25}};
+		markovTresBits = new int[][] {{25,34,19,40,70,10,91,52},{25,34,19,40,70,91,10,52},{25,34,19,22,10,10,10,16}};
 		componente = new int[] {0, 1, 2};
 		robots = new Robot[2*CANT_PAREJAS];
 		datosRobots = new DatosGenetico[2*CANT_PAREJAS];
@@ -29,21 +29,13 @@ public class Programa implements IConstants{
 		miAlgoritmo.cargarTerreno(mapa);
 		miGenetico= new Genetico(this);
 		
-		boolean salir=false;
-		while(!salir) {
+		int cont=0;
+		while(cont<CANT_GENERACIONES) {
 			//imprimirRobots();
 			pruebas();
 			funcionAdaptabilidad();
-			//System.out.println("Generacion "+genActual+" porcentaje de exito: "+porcentajeExito());
-			if(porcentajeExito()>70.0) {
-				salir=true;
-				System.out.println("Generacion "+genActual+" porcentaje de exito: "+porcentajeExito());
-			}else {
-				/*if(porcentajeExito()==0.0) {
-					imprimirRobots();
-				}*/
-				siguienteGen(miAlgoritmo.seleccion(robots));
-			}
+			siguienteGen(miAlgoritmo.seleccion(robots));
+			cont++;
 		}
 		
 		/*String a="";
@@ -76,18 +68,6 @@ public class Programa implements IConstants{
 			robot.setCromosomas(cromosomas);
 			robots[k] = robot;
 		}
-	}
-	
-	private double porcentajeExito() {
-		double porc=0.0;
-		int temp=0;
-		for (int i = 0; i < robots.length; i++) {
-			if(robots[i].getExito()==true) {
-				temp+=1;
-			}
-		}
-		porc=(double)temp/robots.length*100;
-		return porc;
 	}
 	
 	private void siguienteGen(String[] elegidos) {
