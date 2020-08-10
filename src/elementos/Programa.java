@@ -30,7 +30,7 @@ public class Programa implements IConstants{
 		miGenetico= new Genetico(this);
 		
 		int cont=0;
-		while(cont<50) {
+		while(cont<CANT_GENERACIONES) {
 			//imprimirRobots();
 			pruebas();
 			funcionAdaptabilidad();

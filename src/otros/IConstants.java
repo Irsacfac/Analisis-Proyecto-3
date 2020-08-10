@@ -10,5 +10,6 @@ public interface IConstants {
 	public static int CANT_PAREJAS = 8;
 	public static int DIRECTIONS = 4;
 	public static int CANT_PRUEBAS = 4;
+	public static int CANT_GENERACIONES = 35;
 	public static int[] OBJETIVO = {60, 30, 0};//Pasos, porcentaje de energía, distancia
 }
