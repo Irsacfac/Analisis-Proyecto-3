@@ -2,6 +2,7 @@ package elementos;
 
 import java.util.Random;
 import otros.ContenedorCromosomas;
+import otros.DatosGenetico;
 import otros.IConstants;
 
 import java.io.*;
@@ -266,16 +267,23 @@ public class Algoritmo implements IConstants{
 		}
 	}
 	
-	public void escribir(Robot[] robots) {
+	public void escribir(int gen, Robot[] robots, DatosGenetico[] datos) {
 		FileWriter fichero = null;
         PrintWriter pw = null;
         try
         {
-        	fichero = new FileWriter("Generacion.txt");
+        	fichero = new FileWriter("DatosGen.txt", true);
             pw = new PrintWriter(fichero);
-
+            pw.println("Generacion "+gen);
             for (int i = 0; i < robots.length; i++) {
-                pw.println(robots[i].toString());
+            	pw.println("R"+robots[i].toString());
+	            for (int j = 0; j < datos[i].getFilas().length; j++) {
+	                pw.println(datos[i].getFilas()[j]);
+	                pw.println(datos[i].getColumnas()[j]);
+	                pw.println(datos[i].getBateriaRestante()[j]);
+	                pw.println(datos[i].getPasosDados()[j]);
+	                pw.println(datos[i].getTiempo()[j]);
+	            }
             }
         } catch (Exception e) {
             e.printStackTrace();

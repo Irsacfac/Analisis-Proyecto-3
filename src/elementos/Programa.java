@@ -1,5 +1,7 @@
 package elementos;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import otros.ContenedorCromosomas;
@@ -18,7 +20,26 @@ public class Programa implements IConstants{
 	private Robot[] robots;
 	DatosGenetico[] datosRobots;
 	
+	
 	public Programa() {
+		FileWriter fichero = null;
+	    PrintWriter pw = null;
+	    try
+	    {
+	    	fichero = new FileWriter("DatosGen.txt");
+	        pw = new PrintWriter(fichero);
+	        pw.println("");
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	       try {
+	       if (null != fichero)
+	          fichero.close();
+	       } catch (Exception e2) {
+	          e2.printStackTrace();
+	       }
+	    }
 		markovDosBits = new int[] {0, 35, 70, 100};
 		markovTresBits = new int[][] {{25,34,19,40,70,10,91,52},{25,34,19,40,70,91,10,52},{25,34,19,22,10,10,10,25}};
 		componente = new int[] {0, 1, 2};
@@ -92,6 +113,9 @@ public class Programa implements IConstants{
 	
 	private void siguienteGen(String[] elegidos) {
 		//ESCRIBIR LA GENERACION ACTUAL EN EL TXT;
+		miAlgoritmo.escribir(genActual, robots, datosRobots);
+		//--------------------------------------
+		
 		Robot[] siguienteGen= new Robot[2*CANT_PAREJAS];
 		genActual++;
 		

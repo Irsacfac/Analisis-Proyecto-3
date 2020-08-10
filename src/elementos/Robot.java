@@ -141,7 +141,7 @@ public class Robot implements IConstants{
 	}
 
 	public void setPadres(Robot pPadreA, Robot pPadreB) {
-		this.padres = pPadreA.getNombre() + ": " + pPadreA.genToString() + ", " + pPadreB.getNombre() + ": " + pPadreB.genToString();
+		this.padres = pPadreA.getNombre() + ":" + pPadreA.genToString() + "," + pPadreB.getNombre() + ":" + pPadreB.genToString();
 	}
 
 	public String getNombre() {

@@ -13,6 +13,7 @@ public class DatosGenetico implements IConstants{
 		columnas = new int[CANT_PRUEBAS];
 		bateriaRestante = new int[CANT_PRUEBAS];
 		pasosDados = new int[CANT_PRUEBAS];
+		tiempo = new int[CANT_PRUEBAS];
 	}
 	
 	public void add(int pos, int pFila, int pCol, int pBateria, int pPasos, int pTiempo) {
@@ -28,6 +29,10 @@ public class DatosGenetico implements IConstants{
 		columnas[pos] = pDatos[1];
 		bateriaRestante[pos] = pDatos[2];
 		pasosDados[pos] = pDatos[3];
+	}
+	
+	public int[] getTiempo() {
+		return tiempo;
 	}
 	
 	public int[] getFilas() {
