@@ -1,5 +1,6 @@
 package elementos;
 
+import java.util.Random;
 import otros.ContenedorCromosomas;
 import otros.IConstants;
 
@@ -162,6 +163,17 @@ public class Algoritmo implements IConstants{
 			puntoCruce++;
 		}
 		
+		Random rand = new Random();
+		double mutar=0 + 100 * rand.nextDouble();
+		mutar=Math.round(mutar*10)/10d;
+		if(mutar<20.0) {
+			n1=mutacion(n1,5);
+		}
+		if(mutar>80.0) {
+			n2=mutacion(n2,5);
+		}
+		//System.out.println(mutar);
+		
 		/*String auxA="";
 		String auxB="";
 		String auxH1="";
@@ -182,8 +194,10 @@ public class Algoritmo implements IConstants{
 	
 	public boolean[] mutacion(boolean[] gen, int tipo) {
 		boolean[] mutado = new boolean[gen.length];
-		int inicio =  (int) Math.random()*(gen.length - 4);
-		int fin = (int) (Math.random()*(3) + inicio);
+		int inicio =  (int) (Math.random()*(gen.length/2));
+		int fin = (int) (Math.random()*(gen.length/2) + gen.length/2);
+		/*System.out.println("Inicio: "+inicio);
+		System.out.println("Fin: "+fin);*/
 		for (int i = 0; i < inicio; i++) {
 			mutado[i] = gen[i];
 		}
@@ -208,6 +222,17 @@ public class Algoritmo implements IConstants{
 		for (int j = fin; j < mutado.length; j++) {
 			mutado[j] = gen[j];
 		}
+		
+		/*String aux="";
+		String auxM="";
+		for (int i = 0; i < gen.length; i++) {
+			aux+=gen[i]+"-";
+			auxM+=mutado[i]+"-";
+		}
+		System.out.println(aux);
+		System.out.println(auxM);
+		System.out.println("---");*/
+		
 		return mutado;
 	}
 	
