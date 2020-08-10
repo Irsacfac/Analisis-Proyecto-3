@@ -29,6 +29,7 @@ public class DatosGenetico implements IConstants{
 		columnas[pos] = pDatos[1];
 		bateriaRestante[pos] = pDatos[2];
 		pasosDados[pos] = pDatos[3];
+		tiempo[pos]=pDatos[4];
 	}
 	
 	public int[] getTiempo() {
